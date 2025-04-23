@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AJ Cafe - Order Now</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      color: #944000;
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #5a2e00;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff8000;
+    }
+
+    .menu-section, .order-summary {
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      margin: 20px auto;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .menu-section h2, .order-summary h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #5a2e00;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .menu-item {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item i {
+      font-size: 24px;
+      color: #d37b16;
+      margin-bottom: 10px;
+    }
+
+    .menu-item p {
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    .menu-item input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .order-box {
+      background: #fff9f0;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+    }
+
+    .order-box i {
+      color: #d37b16;
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    .summary-total {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    button {
+      margin: 10px 5px 0 5px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #ff8000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #e26d00;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: rgba(255,255,255,0.8);
+      padding: 15px;
+      text-align: center;
+      color: #5a2e00;
+      font-weight: bold;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      .menu-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu-item {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-mug-hot"></i> AJ Cafe - Order Now</h1>
+    <nav>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a> |
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a> |
+      <a href="menu.html"><i class="fas fa-book-open"></i> Menu</a> |
+      <a href="order.html"><i class="fas fa-shopping-cart"></i> Order</a> |
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="menu-section">
+    <h2>Place Your Order</h2>
+    <div class="menu-container" id="menu-container"></div>
+  </section>
+
+  <section class="order-summary">
+    <h2>Your Order Summary</h2>
+    <div id="order-summary-body"></div>
+    <p class="summary-total">
+      <strong>Total Quantity:</strong> <span id="total-qty">0</span><br>
+      <strong>Total Amount:</strong> $<span id="total-amount">0.00</span>
+    </p>
+    <div style="text-align: center;">
+      <button id="submit-order">Submit Order</button>
+      <button onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 AJ Cafe. All rights reserved.
+  </footer>
+
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <script>
+    const menu = [
+      { name: "Espresso", price: 3, icon: "fa-mug-hot" },
+      { name: "Cappuccino", price: 4, icon: "fa-coffee" },
+      { name: "Latte", price: 4.5, icon: "fa-glass-whiskey" },
+      { name: "Macchiato", price: 3.5, icon: "fa-mug-hot" },
+      { name: "Mocha", price: 5, icon: "fa-coffee" }
+    ];
+
+    const menuContainer = document.getElementById('menu-container');
+
+    menu.forEach(item => {
+      const menuItem = document.createElement('div');
+      menuItem.classList.add('menu-item');
+      menuItem.innerHTML = `
+        <i class="fas ${item.icon}"></i>
+        <p>${item.name}</p>
+        <p>$${item.price}</p>
+        <input type="number" min="0" id="qty-${item.name}" value="0" />
+      `;
+      menuContainer.appendChild(menuItem);
+    });
+
+    const submitOrderButton = document.getElementById('submit-order');
+    submitOrderButton.addEventListener('click', () => {
+      let totalQty = 0;
+      let totalAmount = 0;
+
+      menu.forEach(item => {
+        const qty = parseInt(document.getElementById(`qty-${item.name}`).value) || 0;
+        if (qty > 0) {
+          totalQty += qty;
+          totalAmount += item.price * qty;
+        }
+      });
+
+      if (totalQty === 0) {
+        alert("Please add at least one item to your order before submitting.");
+        return;
+      }
+
+      document.getElementById('total-qty').textContent = totalQty;
+      document.getElementById('total-amount').textContent = totalAmount.toFixed(2);
+    });
+
+    function proceedToPayment() {
+      alert("Redirecting to payment page...");
+      // Add redirection logic here if needed
+    }
+  </script>
+</body>
+</html>

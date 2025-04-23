@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AJ Cafe</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center/cover;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #ffda9e;
+    }
+
+    nav a {
+      color: #ffd7a3;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff8000;
+    }
+
+    section {
+      text-align: center;
+      padding: 100px 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    section p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .icons {
+      margin-top: 40px;
+      font-size: 2rem;
+    }
+
+    .icons i {
+      margin: 0 15px;
+      transition: transform 0.3s ease, color 0.3s ease;
+      color: #ffcc80;
+    }
+
+    .icons i:hover {
+      transform: scale(1.3);
+      color: #ff8000;
+    }
+  </style>
+</head>
+<body class="home-page">
+<!-- Place this inside your <body> tag, at the top of each page -->
+    <header class="main-header">
+        <div class="header-content">
+          <h1>Welcome To AJ Cafe</h1>
+        </div>
+        <nav>
+          <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="menu.html"><i class="fas fa-book-open"></i> Menu</a>
+          <a href="order.html"><i class="fas fa-shopping-cart"></i> Order</a>
+          <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </nav>
+      </header>
+
+  <section data-aos="fade-up">
+    <h2>☕ Best Coffee & Snacks in Town</h2>
+    <p><i class="fas fa-heart"></i> Relax and refresh at AJ Cafe with premium coffee and delicious snacks served fresh daily.</p>
+    <div class="icons" data-aos="zoom-in">
+      <i class="fas fa-coffee"></i>
+      <i class="fas fa-cookie-bite"></i>
+      <i class="fas fa-ice-cream"></i>
+      <i class="fas fa-blender"></i>
+      <i class="fas fa-birthday-cake"></i>
+    </div>
+  </section>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true
+    });
+  </script>
+</body>
+</html>

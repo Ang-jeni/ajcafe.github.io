@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - AJ Cafe</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #6b4f4f;
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #6b4f4f;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d2691e;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #6b4f4f;
+    }
+
+    .login-box {
+      width: 400px;
+      max-width: 90%;
+      margin: 40px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      animation: fadeInUp 1s ease;
+    }
+
+    .login-box label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d2691e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .login-box button:hover {
+      background-color: #cd89f3;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .login-box {
+        width: 90%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body class="login-page">
+  <header>
+    <h1>Our Menu</h1>
+    <nav>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a> |
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a> |
+      <a href="menu.html"><i class="fas fa-utensils"></i> Menu</a> |
+      <a href="order.html"><i class="fas fa-shopping-cart"></i> Order</a> |
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+    </nav>
+  </header>
+
+  <h1>Login to Continue</h1>
+  <section class="login-box" data-aos="fade-up">
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+        <small>We'll never share your email with anyone else.</small>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" required />
+        <small>Format: 9876543220</small>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required />
+
+      <button type="submit">Login</button>
+    </form>
+  </section>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+        const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+      const password = document.getElementById("password").value.trim();
+        // Perform login validation here (e.g., check against a database)
+        // For demonstration, we'll just log the values
+        console.log("Username:", username);
+        console.log("Email:", email);
+        console.log("Phone:", phone);
+        console.log("Password:", password);
+// add email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+        // add phone number validation
+        const phonePattern = /^\d{10}$/;
+        if (!phonePattern.test(phone)) {
+          alert("Please enter a valid phone number.");
+          return;
+        }
+        // add password validation
+        if (password.length < 6) {
+          alert("Password must be at least 6 characters long.");
+          return;
+        }   
+        // If validation passes, you can proceed with the login
+        alert("Login successful!");
+        // Store user data in local storage (for demonstration purposes)
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email);
+        localStorage.setItem("phone", phone);
+        localStorage.setItem("password", password);
+
+      // Redirect to Menu Page
+      window.location.href = "menu.html";
+    });
+  </script>
+</body>
+</html>

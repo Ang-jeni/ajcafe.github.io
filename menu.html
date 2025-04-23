@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - AJ Cafe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #3b1313;
+    }
+
+    header {
+      background-color: rgba(217, 172, 172, 0.8);
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #ff8000;
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #444;
+      font-weight: bold;
+    }
+
+    .menu-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      margin: 40px auto;
+      max-width: 1000px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .menu-category {
+      font-size: 28px;
+      margin: 30px 0 15px;
+      color: #4B2E2E;
+      border-bottom: 2px solid #ff8000;
+    }
+
+    .menu-row {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .menu-box {
+      background-color: #fff4e6;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      width: 180px;
+      min-width: 180px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .menu-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-box i {
+      font-size: 28px;
+      color: #ff8000;
+      margin-bottom: 10px;
+    }
+
+    .menu-box h3 {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+
+    .menu-box p {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .menu-row::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .menu-row::-webkit-scrollbar-thumb {
+      background: #ff8000;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="menu-page">
+  <!-- Place this inside your <body> tag, at the top of each page -->
+<header class="main-header">
+  <div class="header-content">
+    <h1>Our Menu</h1>
+  </div>
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    <a href="menu.html"><i class="fas fa-book-open"></i> Menu</a>
+    <a href="order.html"><i class="fas fa-shopping-cart"></i> Order</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+  </nav>
+</header>
+
+  <section class="menu-container">
+    <h1>Welcome to AJ Cafe</h1>
+
+    <h2 class="menu-category">Drinks</h2>
+    <div class="menu-row">
+      <div class="menu-box" data-aos="fade-up"><i class="fas fa-coffee"></i><h3>Espresso</h3><p>$3</p></div>
+      <div class="menu-box" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-mug-hot"></i><h3>Cappuccino</h3><p>$4</p></div>
+      <div class="menu-box" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-mug-hot"></i><h3>Latte</h3><p>$4.50</p></div>
+      <div class="menu-box" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-mug-hot"></i><h3>Macchiato</h3><p>$3.50</p></div>
+      <div class="menu-box" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-mug-hot"></i><h3>Mocha</h3><p>$5</p></div>
+      <div class="menu-box" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-coffee"></i><h3>Americano</h3><p>$3.50</p></div>
+      <div class="menu-box" data-aos="fade-up" data-aos-delay="600"><i class="fas fa-ice-cream"></i><h3>Hot Chocolate</h3><p>$4</p></div>
+    </div>
+
+    <h2 class="menu-category">Snacks</h2>
+    <div class="menu-row">
+      <div class="menu-box" data-aos="zoom-in"><i class="fas fa-bread-slice"></i><h3>Croissant</h3><p>$2.50</p></div>
+      <div class="menu-box" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-cookie-bite"></i><h3>Muffin</h3><p>$3</p></div>
+      <div class="menu-box" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-drumstick-bite"></i><h3>Donut</h3><p>$2</p></div>
+      <div class="menu-box" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-cookie"></i><h3>Cookie</h3><p>$1.50</p></div>
+      <div class="menu-box" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-bag-shopping"></i><h3>Bagel</h3><p>$3</p></div>
+        <div class="menu-box" data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-bread-slice"></i><h3>Brownie</h3><p>$2.50</p></div>
+    </div>
+  </section>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // animation duration
+      once: true // only animate once
+    });
+  </script>
+</body>
+</html>
